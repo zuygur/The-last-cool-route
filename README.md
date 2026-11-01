@@ -44,9 +44,15 @@ http://localhost:8080
 - ✅ Free camera panning with mouse drag and keyboard controls
 - ✅ 2016 planning and 2026 climate comparison gameplay
 - ✅ Infrastructure placement with zone validation, cost checks, mission progress, and feedback
+- ✅ Continuous placement mode with placement ghost preview and cancel controls
+- ✅ 90-degree rotation for supported infrastructure using the `R` key
+- ✅ Functional placed Bus Stops integrated with the existing transit route system
+- ✅ Rooftop Solar and Green Roof placement at the exact selected roof position
 - ✅ Climate dashboard with indicators, history, and world-space heat map
 - ✅ Climate events with preparation requirements and resident impact feedback
-- ✅ Notification banner for builds, missions, saves, and climate warnings
+- ✅ Clear player-friendly mission and event instructions with next-step guidance
+- ✅ Balanced Urban Planning costs with displayed and validated EC deductions
+- ✅ Notification banner for builds, missions, saves, climate warnings, and placement controls
 - ✅ Local save/load with 15-second autosave and infrastructure restoration
 - ✅ Responsive landscape layout and procedural pixel-art graphics
 - ✅ ESC key support for closing active panels and placement mode
@@ -85,18 +91,38 @@ src/
 ## Controls
 
 - **Click** on locations and characters to view information
+- **Click** Urban Planning to choose an infrastructure item
+- **Move the cursor** over the map to preview the selected item
+- **Click** a valid location to place infrastructure
+- **R** rotates supported infrastructure by 90 degrees before placement
+- **ESC** or click **Cancel** to exit placement mode
 - **ESC** or click "Close" to close info panels
-- **⚙️ Menu** button to return to main menu
+- **⚙️ Menu** button to open the in-game menu
+- **Mouse drag / Arrow keys / WASD** to pan the map
 - Mouse hover shows clickable highlights
 
-## Phase 13 QA Status
+## Gameplay Notes
 
-- ✅ JavaScript syntax validation completed for all source files
-- ✅ Local HTTP server smoke test returned HTTP 200
+- New planning infrastructure must be built in **2016** so it can affect the 2026 city.
+- Rooftop Solar and Green Roof must be placed inside a valid building roof area and remain at the selected roof position.
+- Saplings planted in 2016 mature into shade trees in 2026.
+- Bike Lanes can be placed as connected segments along valid roads.
+- Newly placed Bus Stops join the existing transit route and can receive waiting passengers.
+- Mission and climate-event panels list the specific structures and locations required.
+- The placement banner displays **“Press R to rotate”** for rotatable items.
+
+## Verification Status — November 1, 2026
+
+- ✅ JavaScript syntax validation completed for the modified source files
+- ✅ Local HTTP server smoke test previously returned HTTP 200
 - ✅ Save/load paths include guarded localStorage access and version validation
 - ✅ Existing Phaser scenes and script loading order remain intact
+- ✅ Mission and climate-event guidance now uses player-facing instructions
+- ✅ Urban Planning costs are displayed from the same item definitions used for deductions
+- ✅ Placement instructions show the `R` rotation control for supported items
 - ⚠️ Full browser interaction QA is pending because no Chromium/Chrome/Edge automation executable is available in the current environment
-- ⚠️ Manual visual checks are still recommended for HUD buttons, dashboard controls, event preparation, save/continue, and camera panning
+- ⚠️ The local development server was stopped by the environment under memory pressure; start it again manually when testing
+- ⚠️ Manual visual checks are still recommended for rooftop placement, rotation, HUD buttons, dashboard controls, event preparation, save/continue, and camera panning
 
 ## Remaining Improvements
 
